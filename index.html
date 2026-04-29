@@ -366,6 +366,7 @@
     padding: 7rem 2rem;
     max-width: 1180px; margin: 0 auto;
     position: relative;
+    text-align: left;
   }
   .section.narrow { max-width: 920px; }
 
@@ -504,8 +505,9 @@
     padding: 7rem 2rem;
     position: relative;
     overflow: hidden;
+    text-align: left;
   }
-  .findings-inner { max-width: 1180px; margin: 0 auto; }
+  .findings-inner { max-width: 1180px; margin: 0 auto; text-align: left; }
   .findings-title {
     font-size: clamp(36px, 5.2vw, 60px);
     font-weight: 400; letter-spacing: -1.8px; line-height: 1.05;
@@ -574,8 +576,9 @@
     background: var(--lavender-tint);
     padding: 5.5rem 2rem;
     border-bottom: 1px solid var(--anth-50);
+    text-align: left;
   }
-  .defs-inner { max-width: 1180px; margin: 0 auto; }
+  .defs-inner { max-width: 1180px; margin: 0 auto; text-align: left; }
   .defs-title {
     font-size: clamp(28px, 3.5vw, 40px);
     font-weight: 400; letter-spacing: -1.2px; line-height: 1.1;
@@ -594,6 +597,7 @@
     padding: 7rem 2rem;
     position: relative;
     border-top: 1px solid var(--lavender-deep);
+    text-align: left;
   }
   .lavender-section .dark-inner { max-width: 1180px; margin: 0 auto; }
   .lavender-section .dark-inner.narrow { max-width: 920px; }
@@ -730,7 +734,7 @@
   .dark-section .callout p { color: var(--anth-100); }
   .dark-section .callout p strong { color: var(--yellow); }
   .dark-section .callout .c-tag { color: var(--yellow); }
-  .dark-inner { max-width: 1180px; margin: 0 auto; }
+  .dark-inner { max-width: 1180px; margin: 0 auto; text-align: left; }
   .dark-inner.narrow { max-width: 920px; }
 
   /* ====== "WHAT MAKES A GOOD CHARGER", BEST-LIST LAYOUT ====== */
@@ -1436,6 +1440,73 @@
   }
   .mn-reason strong { color: var(--anthracite); font-weight: 600; }
 
+
+  /* ====== OWNERSHIP COMPARISON ====== */
+  .ownership-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+  }
+  .ownership-card {
+    background: var(--white);
+    border: 1px solid var(--anth-100);
+    border-radius: 4px;
+    padding: 2.25rem 2rem;
+    transition: all 0.25s;
+  }
+  .ownership-card.featured {
+    border-color: var(--yellow);
+    background: var(--yellow-50);
+  }
+  .ownership-tag {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--anth-500);
+    margin-bottom: 0.75rem;
+  }
+  .ownership-card.featured .ownership-tag { color: var(--yellow-deep); }
+  .ownership-title {
+    font-size: 19px; font-weight: 500;
+    letter-spacing: -0.4px; line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--anthracite);
+  }
+  .ownership-card p {
+    font-size: 14.5px; color: var(--anth-600);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .ownership-outcomes {
+    display: flex; flex-direction: column; gap: 8px;
+    border-top: 1px solid var(--anth-50);
+    padding-top: 1.25rem;
+  }
+  .ownership-card.featured .ownership-outcomes { border-color: var(--yellow-soft); }
+  .ownership-outcome {
+    font-size: 13px; font-weight: 500;
+    padding: 6px 10px 6px 28px;
+    border-radius: 3px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .ownership-outcome::before {
+    content: '';
+    position: absolute; left: 10px; top: 50%;
+    transform: translateY(-50%);
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+  .ownership-outcome.positive { color: var(--anthracite); background: rgba(40,40,45,0.04); }
+  .ownership-outcome.positive::before { background: var(--yellow-deep); }
+  .ownership-outcome.negative { color: var(--anth-600); background: transparent; }
+  .ownership-outcome.negative::before { background: var(--anth-200); }
+  .ownership-outcome.neutral { color: var(--anth-700); background: transparent; }
+  .ownership-outcome.neutral::before { background: var(--anth-300); }
+  @media (max-width: 880px) {
+    .ownership-grid { grid-template-columns: 1fr; }
+  }
+
   /* ====== RESPONSIVE ====== */
   @media (max-width: 1100px) {
     .defs-grid.defs-grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -1496,12 +1567,13 @@
       <li><a href="#sec-defs" class="toc-link"><span class="toc-num">02</span><span class="toc-name">Definitions</span><span class="toc-arrow">→</span></a></li>
       <li><a href="#sec-takeaways" class="toc-link"><span class="toc-num">03</span><span class="toc-name">Key Takeaways</span><span class="toc-arrow">→</span></a></li>
       <li><a href="#sec-landscape" class="toc-link"><span class="toc-num">04</span><span class="toc-name">The amenity landscape</span><span class="toc-arrow">→</span></a></li>
-      <li><a href="#sec-good-charger" class="toc-link"><span class="toc-num">05</span><span class="toc-name">What makes a good charger</span><span class="toc-arrow">→</span></a></li>
+      <li><a href="#sec-good-charger" class="toc-link"><span class="toc-num">05</span><span class="toc-name">What makes a good charging station</span><span class="toc-arrow">→</span></a></li>
       <li><a href="#sec-density" class="toc-link"><span class="toc-num">06</span><span class="toc-name">Density</span><span class="toc-arrow">→</span></a></li>
-      <li><a href="#sec-health" class="toc-link"><span class="toc-num">07</span><span class="toc-name">Charger health</span><span class="toc-arrow">→</span></a></li>
+      <li><a href="#sec-health" class="toc-link"><span class="toc-num">07</span><span class="toc-name">Station health</span><span class="toc-arrow">→</span></a></li>
       <li><a href="#sec-top" class="toc-link"><span class="toc-num">08</span><span class="toc-name">Top performing amenities</span><span class="toc-arrow">→</span></a></li>
       <li><a href="#sec-gaps" class="toc-link"><span class="toc-num">09</span><span class="toc-name">Opportunity gaps</span><span class="toc-arrow">→</span></a></li>
       <li><a href="#sec-action" class="toc-link"><span class="toc-num">10</span><span class="toc-name">What this means for retailers</span><span class="toc-arrow">→</span></a></li>
+      <li><a href="#sec-ownership" class="toc-link"><span class="toc-num">11</span><span class="toc-name">Owning vs. hosting</span><span class="toc-arrow">→</span></a></li>
     </ul>
   </div>
 </div>
@@ -1521,7 +1593,7 @@
     </div>
     <div class="hero-eyebrow">Industry Report · Q2 2026</div>
     <h1>The 2026 State of<br>Retail-First EV Charging<span class="accent">.</span></h1>
-    <p class="hero-sub">Paren's network data and Electric Era's analysis dive into EV fast charger site performance based on nearby amenities.</p>
+    <p class="hero-sub">This report aims to uncover the relationship between EV fast charging station site performance and nearby amenities, and provide insights into the evolution of EV charging infrastructure.</p>
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div></div>
 </section>
@@ -1531,12 +1603,12 @@
   <div class="section-toggle">
     <div>
       <div class="section-label">About this report</div>
-    <h2 class="sec-title">We wanted to know which EV fast chargers <span class="accent">perform best</span> based on their retail amenities.</h2>
+    <h2 class="sec-title">We wanted to know which EV fast charging stations <span class="accent">perform best</span> based on their retail amenities.</h2>
     </div>
     <div class="toggle-icon"></div>
   </div>
   <div class="section-body">
-    <p class="body-p lead">In partnership with Paren, we looked at amenity data for over 4,000 fast chargers in America. Electric Era brought years of domain expertise about what makes a charging site actually work.</p>
+    <p class="body-p lead">In partnership with Paren, we looked at the most complete dataset of charging station performance and amenities, comprising over 4,000 DCFC stations across America.</p>
 
     <div class="methodology-note">
       <div class="mn-title">Methodology</div>
@@ -1544,19 +1616,19 @@
         <div class="mn-reason">
           <div class="mn-reason-num">1</div>
           <div>
-            <strong>DC fast chargers rated 100 kW or higher.</strong> Chargers below 100 kW are predominantly Level 2 destination chargers, such as those at hotels or workplaces, serving a different use case from retail fast charging.
+            <strong>DC fast charging stations rated 100 kW per port or higher.</strong> Stations below 100 kW are predominantly Level 2 destination stations, such as those at hotels or workplaces, serving a different use case from retail fast charging.
           </div>
         </div>
         <div class="mn-reason">
           <div class="mn-reason-num">2</div>
           <div>
-            <strong>Session data required.</strong> Tesla Superchargers have proprietary data which is not analyzed in this report. The 4,105 stations in our dataset come from Electrify America (41%), EVgo (27%), ChargePoint (9%), Ford (8%), and smaller networks including Ionna, Applegreen, RedE, Shell Recharge, FLO, Blink, and Electric Era's own stations.
+            <strong>Rich session data only.</strong> The 4,105 stations in our dataset include Electrify America, EVgo, ChargePoint, Ford, IONNA, Applegreen, Red-E, Shell Recharge, FLO, Blink, and Electric Era. Tesla does not provide Supercharger session data.
           </div>
         </div>
       </div>
     </div>
 
-    <p class="body-p">We looked at three different data sets:</p>
+    <p class="body-p">We pivoted the data across three different views:</p>
 
     <div class="method-grid">
       <div class="method-card">
@@ -1567,7 +1639,7 @@
       <div class="method-card">
         <div class="method-tag">View 02</div>
         <h4>Any amenity within 0.1 miles</h4>
-        <p>A tight net: physically adjacent to the charger. Immediate parking lot, neighboring storefronts. Most of our deep analysis relies on this view.</p>
+        <p>A tight net: physically adjacent to the station. Immediate parking lot, neighboring storefronts. Most of our deep analysis relies on this view.</p>
       </div>
       <div class="method-card">
         <div class="method-tag">View 03</div>
@@ -1594,19 +1666,19 @@
         <div class="def-num">01</div>
         <div class="def-tag">Key term</div>
         <div class="def-term">Amenity</div>
-        <div class="def-body">An amenity is any nearby business or service drivers might use during a charging session. We mapped every business near a charger to one of 17 types, Shopping Mall, Pharmacy, Grocery, Coffee, Sit-Down Restaurant, Big Box, Fashion Retail, and so on. Amenities are based on Google Places business-type tags, cleaned and consolidated.</div>
+        <div class="def-body">An amenity is any nearby business or service drivers might use during a charging session. We mapped every business near a station to one of 17 types, Shopping Mall, Pharmacy, Grocery, Coffee, Sit-Down Restaurant, Big Box, Fashion Retail, and so on. Amenities are based on Google Places business-type tags, cleaned and consolidated.</div>
       </div>
       <div class="def-card">
         <div class="def-num">02</div>
         <div class="def-tag">Key term</div>
-        <div class="def-term">100 kW+ fast charger</div>
-        <div class="def-body">A 100 kW+ fast charger is a high-power DC fast charger that can charge a typical EV in 20–40 minutes. This report includes chargers rated 100 kW or higher. Slower chargers serve a different customer, destination charging overnight or at workplaces.</div>
+        <div class="def-term">100 kW+ fast charging station</div>
+        <div class="def-body">A 100 kW+ fast charging station is a high-power DC fast charging station that can charge a typical EV in 20–40 minutes. This report includes stations rated 100 kW or higher. Slower stations serve a different customer, destination charging overnight or at workplaces.</div>
       </div>
       <div class="def-card">
         <div class="def-num">03</div>
         <div class="def-tag">Key term</div>
         <div class="def-term">Sessions per day</div>
-        <div class="def-body">Our primary measure of utilization. SPD is the total number of charging sessions a site completes in a typical day, averaged across available history. Across the 4,105 chargers in this dataset, the overall median is 9 SPD. Any amenity above 9 outperforms the average.</div>
+        <div class="def-body">Our primary measure of utilization. SPD is the total number of charging sessions a site completes in a typical day, averaged across available history. Across the 4,105 stations in this dataset, the overall median is 9 SPD. Any amenity above 9 outperforms the average.</div>
       </div>
     </div>
   </div>
@@ -1624,14 +1696,14 @@
         <div class="finding-num">Finding 01</div>
         <div class="finding-headline">Density compounds. Drivers want options.</div>
         <div class="finding-stat">7<span class="unit">×</span></div>
-        <p class="finding-body">A single anchor, like a big box store, performs well on its own. But chargers with <strong>11 or more nearby amenities see roughly 7× the utilization</strong> of isolated ones.</p>
+        <p class="finding-body">A single anchor, like a big box store, performs well on its own. But stations with <strong>11 or more nearby amenities see roughly 7× the utilization</strong> of isolated ones.</p>
       </div>
 
       <div class="finding-card">
         <div class="finding-num">Finding 02</div>
         <div class="finding-headline">Grocery is the runaway winner.</div>
         <div class="finding-stat">42<span class="unit"> SPD</span></div>
-        <p class="finding-body">Fast chargers near a grocery store see a median of 42 sessions per day, the highest of any amenity type in the dataset. Grocery stores combine high traffic, repeat visits, and dwell times that match a typical fast charge.</p>
+        <p class="finding-body">Fast stations near a grocery store see a median of 42 sessions per day, the highest of any amenity type in the dataset. Grocery stores combine high traffic, repeat visits, and dwell times that match a typical fast charge.</p>
       </div>
 
       <div class="finding-card">
@@ -1643,9 +1715,9 @@
 
       <div class="finding-card">
         <div class="finding-num">Finding 04</div>
-        <div class="finding-headline">Charger health matters. A lot.</div>
+        <div class="finding-headline">Station health matters. A lot.</div>
         <div class="finding-stat">6<span class="unit">×</span></div>
-        <p class="finding-body">A reliable charger sees <strong>6× the utilization</strong> of an unreliable one, regardless of what's near it. An unreliable charger is invisible to drivers. They get removed from routing apps and rarely re-tried.</p>
+        <p class="finding-body">A reliable station sees <strong>6× the utilization</strong> of an unreliable one, regardless of what's near it. An unreliable station is invisible to drivers. They get removed from routing apps and rarely re-tried.</p>
       </div>
 
     </div>
@@ -1657,12 +1729,12 @@
   <div class="section-toggle">
     <div>
       <div class="section-label">The amenity landscape</div>
-    <h2 class="sec-title">Which amenities are <span class="accent">actually near</span> America's fast chargers?</h2>
+    <h2 class="sec-title">Which amenities are <span class="accent">actually near</span> America's fast charging stations?</h2>
     </div>
     <div class="toggle-icon"></div>
   </div>
   <div class="section-body">
-    <p class="sec-desc">Before we look at performance, here's the mix we're working with. We mapped every business within 0.1 miles of every 200 kW+ station to one of 17 amenity types. Some show up almost everywhere, while others are much rarer.</p>
+    <p class="sec-desc">Before we look at performance, here's the mix we're working with. We mapped every business within 0.1 miles of every 100 kW+ station to one of 17 amenity types. Some show up almost everywhere, while others are much rarer.</p>
 
     <p class="body-p"><strong>Quick Serve, Sit-Down, and Coffee</strong> show up next to roughly half of all 200 kW+ stations. These are the ubiquitous amenities. <strong>Big Box, Bank, Fashion Retail, and Grocery</strong> sit in the middle, present near roughly a quarter of stations. <strong>Pharmacy, Shopping Mall, and Health</strong> are the under-penetrated tier, near 14–21% of stations each, despite performing well when they're present (more on that in <span class="hl">Finding 03</span>).</p>
 
@@ -1696,51 +1768,6 @@
   </div>
 </section>
 
-<!-- ============ § 04, WHAT MAKES A GOOD CHARGER ============ -->
-<section class="section narrow collapsible" data-section="What makes a good charger" id="sec-good-charger">
-  <div class="section-toggle">
-    <div>
-      <div class="section-label">What makes a good charger</div>
-    <h2 class="sec-title">Here's what makes the <span class="accent">best chargers</span>: reliable hardware in a retail-rich location.</h2>
-    </div>
-    <div class="toggle-icon"></div>
-  </div>
-  <div class="section-body">
-    <p class="sec-desc">After analyzing 4,105 fast chargers, two factors predict utilization more than anything else. The hardware works. And it's surrounded by the right things.</p>
-
-    <div class="best-list">
-      <div class="best-row">
-        <div class="best-stat">6<span class="best-unit">×</span></div>
-        <div class="best-content">
-          <div class="best-title">Healthy hardware</div>
-          <p class="best-desc">Health scores above 90 see 6× the utilization of chargers below 90. An unreliable charger is invisible to drivers.</p>
-        </div>
-      </div>
-      <div class="best-row">
-        <div class="best-stat">5<span class="best-unit">×</span></div>
-        <div class="best-content">
-          <div class="best-title">Retail context</div>
-          <p class="best-desc">Chargers with at least one amenity within 0.1 miles see nearly 3.5× the median utilization (9 SPD) of chargers with zero amenities nearby (3 SPD). Even one nearby business gives drivers somewhere to be while their car charges.</p>
-        </div>
-      </div>
-      <div class="best-row">
-        <div class="best-stat">10<span class="best-unit">×</span></div>
-        <div class="best-content">
-          <div class="best-title">Density compounds</div>
-          <p class="best-desc">Chargers with 11 or more amenities within 0.1 miles see 7× the utilization of chargers with no nearby amenities. More options means more visits.</p>
-        </div>
-      </div>
-      <div class="best-row">
-        <div class="best-stat">3.2<span class="best-unit">×</span></div>
-        <div class="best-content">
-          <div class="best-title">The right anchors</div>
-          <p class="best-desc">All amenities have a positive impact on utilization, but some have a stronger uplift than others. Differentiators (malls, pharmacies, grocery) drive the biggest gains in SPD, while baseline tenants (coffee, QSR, sit-down) help build the surrounding context that makes a site work.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ § 05, DENSITY ============ -->
 <section class="section narrow collapsible" data-section="Density" id="sec-density">
   <div class="section-toggle">
@@ -1751,9 +1778,9 @@
     <div class="toggle-icon"></div>
   </div>
   <div class="section-body">
-    <p class="sec-desc">A great anchor like Walmart or Target performs well on its own. But the biggest performance lever in our entire dataset is amenity <em>density</em>, how many distinct amenities sit within a 2-minute walk of the charger.</p>
+    <p class="sec-desc">A great anchor like Walmart or Target performs well on its own. But the biggest performance lever in our entire dataset is amenity <em>density</em>: how many distinct amenities sit within a 2-minute walk of the station.</p>
 
-    <p class="body-p"><strong>Chargers with amenities nearby see a median of 9 sessions per day.</strong> Chargers with no amenities nearby see a median of 3. That's nearly 3.5× more utilization when you put a fast charger near retail.</p>
+    <p class="body-p"><strong>Charging stations with amenities nearby see a median of 9 sessions per day.</strong> Charging stations with no amenities nearby see a median of 3. That's nearly 3.5× more utilization when you put a fast charging station near retail.</p>
 
     <div class="big-compare">
       <div class="bc-cell isolated">
@@ -1768,23 +1795,35 @@
       </div>
     </div>
 
-    <p class="body-p" style="margin-top: 3rem;">The effect scales with density. Fast chargers with 11 or more amenities within 0.1 miles see 28 <strong>median</strong> sessions per day. That's more than a <strong>7× gap</strong> from chargers with no nearby amenities.</p>
+    <div class="chart-box watermarked" style="margin-top: 2.5rem;">
+      <div class="chart-box-header">
+        <div>
+          <div class="chart-title">Median sessions per day by nearby amenity type</div>
+        </div>
+        <button class="chart-expand" data-chart="amenityChart" title="Expand chart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button>
+      </div>
+      <div class="chart-wrap tall"><canvas id="amenityChart"></canvas></div>
+    </div>
+
+    <div class="sub-h">Density</div>
+
+    <p class="body-p">The effect scales with density. Stations with 11 or more amenities within 0.1 miles see 28 <strong>median</strong> sessions per day. That's more than a <strong>7× gap</strong> from stations with no nearby amenities.</p>
 
     <div class="chart-box watermarked">
       <div class="chart-box-header">
         <div>
           <div class="chart-title">The amenity density gradient</div>
-          <div class="chart-sub">Median sessions per day · 200 kW+ chargers · 0.1 mi radius</div>
+          <div class="chart-sub">Median sessions per day · 100 kW+ stations · 0.1 mi radius</div>
         </div>
         <button class="chart-expand" data-chart="densityChart" title="Expand chart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button>
       </div>
       <div class="chart-wrap"><canvas id="densityChart"></canvas></div>
     </div>
 
-    <p class="body-p dim">A small number of amenities isn't a bad site, a Walmart in an empty lot still draws drivers. But a Walmart in a power center with a Starbucks, a bank, a pharmacy, and a CAVA does much better. Drivers don't need one reason to stay; they need options.</p>
+    <p class="body-p dim">A small number of amenities isn't a bad site. A standalone Kroger still draws drivers, but a Kroger in a power center with an integrated coffee shop, bank, and pharmacy will do better according to the data. The data shows that drivers are looking for options.</p>
 
-    <div class="sub-h">Three sites that prove the pattern</div>
-    <p class="body-p dim">Real-world examples of how amenity density shows up in actual charger performance data.</p>
+    <div class="sub-h">Three sites that demonstrate the pattern</div>
+    <p class="body-p dim">Real-world examples of how amenity density shows up in actual station performance data.</p>
 
     <div class="case-placeholder">
       <div class="case-placeholder-icon">Case study 1</div>
@@ -1816,21 +1855,21 @@
 </section>
 
 <!-- ============ § 06, CHARGER HEALTH ============ -->
-<section class="section narrow collapsible" data-section="Charger health" id="sec-health">
+<section class="section narrow collapsible" data-section="Station health" id="sec-health">
   <div class="section-toggle">
     <div>
-      <div class="section-label">Charger health</div>
-    <h2 class="sec-title">A reliable charger is <span class="accent">visible</span>. An unreliable one isn't.</h2>
+      <div class="section-label">Station health</div>
+    <h2 class="sec-title">A reliable station is <span class="accent">visible</span>. An unreliable one isn't.</h2>
     </div>
     <div class="toggle-icon"></div>
   </div>
   <div class="section-body">
-    <p class="sec-desc">Location is the setup. Reliability is the payoff. A reliable charger at a mediocre location can outperform an unreliable charger at an exceptional one.</p>
+    <p class="sec-desc">Location is the setup. Reliability is the payoff. A reliable station at a mediocre location can outperform an unreliable station at an exceptional one.</p>
 
-    <p class="body-p">A fast charger's health score strongly predicts its utilization, and not by a little.</p>
+    <p class="body-p">A fast charging station's health score strongly predicts its utilization, and not by a little.</p>
 
     <div class="table-wrap watermarked"><table class="data">
-      <thead><tr><th>Health score</th><th>Chargers</th><th style="text-align:right;">Median sessions/day</th></tr></thead>
+      <thead><tr><th>Health score</th><th>Stations</th><th style="text-align:right;">Median sessions/day</th></tr></thead>
       <tbody>
         <tr class="highlight"><td>90 or higher</td><td class="num-muted">1,438</td><td class="num" style="text-align:right;">17</td></tr>
         <tr><td>Below 90</td><td class="num-muted">348</td><td class="num" style="text-align:right;">3</td></tr>
@@ -1839,7 +1878,7 @@
 
     <p class="body-p">That's a <strong>6× gap driven entirely by reliability</strong>.</p>
 
-    <p class="body-p">The hardware and the operator matter as much as the location. A cheaper charger with worse uptime doesn't just frustrate drivers, it permanently costs you customers. Broken chargers get removed from routing apps and never re-tried.</p>
+    <p class="body-p">The hardware and the operator matter as much as the location. A cheaper station with worse uptime doesn't just frustrate drivers, it changes customer habits. Broken stations get demoted or removed from routing apps and are never re-tried.</p>
   </div>
 </section>
 
@@ -1870,7 +1909,7 @@
         </div>
         <div class="fc-body">
           <h4>Grocery is the top-performing amenity type.</h4>
-          <p>Fast chargers near a grocery store see a median of <strong>42 sessions per day</strong>, nearly 5× the dataset baseline of 9. The dwell-time match is nearly perfect: a typical grocery run takes 25–40 minutes, which is exactly how long a fast charge takes.</p>
+          <p>Fast stations near a grocery store see a median of <strong>42 sessions per day</strong>, nearly 5× the dataset baseline of 9. The dwell-time match is nearly perfect: a typical grocery run takes 25–40 minutes, which is exactly how long a fast charge takes.</p>
           <p>Yet only 6.7% of stations sit near a grocery store, making it both the highest-performing and one of the least-represented amenity types in today's network.</p>
         </div>
       </div>
@@ -1889,7 +1928,7 @@
         </div>
         <div class="fc-body">
           <h4>Malls are the highest-density winner.</h4>
-          <p>Fast chargers near a shopping mall see a median of <strong>35 sessions per day</strong>, nearly 4× the dataset baseline. The peak we recorded was 102 sessions per day. Malls deliver the heaviest foot traffic, the longest dwell times, and the densest surrounding amenity mix of any retail context.</p>
+          <p>Fast stations near a shopping mall see a median of <strong>35 sessions per day</strong>, nearly 4× the dataset baseline. The peak we recorded was 102 sessions per day. Malls deliver the heaviest foot traffic, the longest dwell times, and the densest surrounding amenity mix of any retail context.</p>
           <p>Only 3.7% of stations are near a shopping mall, the lowest penetration of any top-performing amenity type.</p>
         </div>
       </div>
@@ -1909,12 +1948,12 @@
       <div class="toggle-icon"></div>
     </div>
     <div class="section-body">
-      <p class="sec-desc">The most actionable finding in this report isn't the top of the list, it's the gap between what performs and what's actually been built. Five amenities stand out: strong median utilization, low penetration, clear runway for the retailers who move first.</p>
+      <p class="sec-desc">The most actionable finding in this report isn't the top of the list, it's the gap between what performs and what's actually been built. Five amenities stand out for driving strong median utilization, but have low penetration, representing a clear runway for the retailers who move first.</p>
 
       <div class="gap-table">
         <div class="gap-row header">
           <div>Amenity</div>
-          <div style="text-align:right;">% of chargers nearby</div>
+          <div style="text-align:right;">% of stations nearby</div>
           <div style="text-align:right;">Median SPD</div>
         </div>
         <div class="gap-row">
@@ -1956,11 +1995,57 @@
 </section>
 
 <!-- ============ § 09, WHAT THIS MEANS ============ -->
+<!-- ============ § 04, WHAT MAKES A GOOD CHARGER ============ -->
+<section class="section narrow collapsible" data-section="What makes a good charging station" id="sec-good-charger">
+  <div class="section-toggle">
+    <div>
+      <div class="section-label">What makes a good charging station</div>
+    <h2 class="sec-title">Here's what makes the <span class="accent">best charging stations</span>: reliable hardware in a retail-rich location.</h2>
+    </div>
+    <div class="toggle-icon"></div>
+  </div>
+  <div class="section-body">
+    <p class="sec-desc">After analyzing 4,105 fast charging stations, two factors predict utilization more than anything else. The hardware works. And it's surrounded by the right things.</p>
+
+    <div class="best-list">
+      <div class="best-row">
+        <div class="best-stat">6<span class="best-unit">×</span></div>
+        <div class="best-content">
+          <div class="best-title">Healthy hardware</div>
+          <p class="best-desc">Health scores above 90 see 6× the utilization of stations below 90. An unreliable station is invisible to drivers.</p>
+        </div>
+      </div>
+      <div class="best-row">
+        <div class="best-stat">5<span class="best-unit">×</span></div>
+        <div class="best-content">
+          <div class="best-title">Retail context</div>
+          <p class="best-desc">Charging stations with at least one amenity within 0.1 miles see nearly 3.5× the median utilization (9 SPD) of charging stations with zero amenities nearby (3 SPD). Even one nearby business gives drivers somewhere to be while their car charges.</p>
+        </div>
+      </div>
+      <div class="best-row">
+        <div class="best-stat">10<span class="best-unit">×</span></div>
+        <div class="best-content">
+          <div class="best-title">Density compounds</div>
+          <p class="best-desc">Stations with 11 or more amenities within 0.1 miles see 7× the utilization of stations with no nearby amenities. More options means more visits.</p>
+        </div>
+      </div>
+      <div class="best-row">
+        <div class="best-stat">3.2<span class="best-unit">×</span></div>
+        <div class="best-content">
+          <div class="best-title">The right anchors</div>
+          <p class="best-desc">All amenities have a positive impact on utilization, but some have a stronger uplift than others. Differentiators (malls, pharmacies, grocery) drive the biggest gains in SPD, while baseline tenants (coffee, QSR, sit-down) help build the surrounding context that makes a site work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section class="lavender-section" data-section="What this means for retailers" id="sec-action">
   <div class="dark-inner narrow">
     <div class="section-label">What this means for retailers</div>
     <h2 class="sec-title">For most of retail history, the parking lot was <strong>overhead</strong>. That's <span class="accent">changing</span>.</h2>
-    <p class="sec-desc">The right fast charger in the right parking lot is now a traffic driver, a dwell-time extender, and a predictable source of return visits. The question isn't whether to add fast charging. It's whether you'll add it on your terms, or react to a competitor who moved first.</p>
+    <p class="sec-desc">The right fast charging station in the right parking lot is now a traffic driver, a dwell-time extender, and a predictable source of return visits. The question isn't whether to add fast charging. It's whether you'll add it on your terms, or react to a competitor who moved first.</p>
 
     <p class="body-p" style="margin-top:3rem;">The findings in this report aren't proprietary to Electric Era. They're true of fast charging in American retail, whoever installs it. But if you're evaluating partners, the data points to three things that matter more than most retailers realize:</p>
 
@@ -1969,7 +2054,7 @@
         <div class="ee-bullet-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div>
           <h5>Hardware built for retail dwell times</h5>
-          <p>Underpowered chargers force drivers to extend their visit beyond what they planned. For a 20–40 minute grocery run or pharmacy visit, delivering up to 400 kW per stall matches driver behavior. Electric Era's <strong>RE400 chargers</strong> are built around that window.</p>
+          <p>Underpowered stations force drivers to extend their visit beyond what they planned. For a 20–40 minute grocery run or pharmacy visit, delivering up to 400 kW per port matches driver behavior. Electric Era's <strong>RE400 stations</strong> are built around that window.</p>
         </div>
       </div>
       <div class="ee-bullet">
@@ -1983,7 +2068,7 @@
         <div class="ee-bullet-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <div>
           <h5>A driver experience that protects your brand</h5>
-          <p>When a charger fails, the driver automatically thinks less of the retailer whose parking lot they're in. Electric Era's combination of hardware reliability, remote diagnostics, and real-time driver support means that when something goes wrong, drivers are able to successfully charge without giving up on your store.</p>
+          <p>When a station fails, the driver automatically thinks less of the retailer whose parking lot they're in. Electric Era's combination of hardware reliability, remote diagnostics, and real-time driver support means that when something goes wrong, drivers are able to successfully charge without giving up on your store.</p>
         </div>
       </div>
     </div>
@@ -2003,6 +2088,44 @@
     </div>
   </div>
 </div>
+
+<!-- ============ CPO VS SITE OWNER ============ -->
+<section class="section narrow" data-section="Owning vs. hosting" id="sec-ownership">
+  <div class="section-label">Owning vs. hosting</div>
+  <h2 class="sec-title">Who owns the station changes the <span class="accent">business outcome</span>.</h2>
+  <p class="sec-desc">The same station in the same parking lot can produce very different results for a retailer depending on whether they own it or host it.</p>
+
+  <div class="ownership-grid">
+    <div class="ownership-card">
+      <div class="ownership-tag">CPO-owned model</div>
+      <div class="ownership-title">A charging provider owns and operates the station</div>
+      <p>In the CPO-owned model, a charging network installs and operates the equipment. The retailer receives a modest site host fee or simply benefits from foot traffic. The CPO controls the pricing, the driver experience, the branding, and the data. For the retailer, the station is essentially a utility in their parking lot, not a business asset.</p>
+      <div class="ownership-outcomes">
+        <div class="ownership-outcome neutral">Predictable, low-effort income</div>
+        <div class="ownership-outcome neutral">No capital outlay</div>
+        <div class="ownership-outcome negative">CPO brand, not yours, at the point of experience</div>
+        <div class="ownership-outcome negative">No access to session data or customer insights</div>
+        <div class="ownership-outcome negative">Limited control over pricing, uptime, or experience</div>
+      </div>
+    </div>
+
+    <div class="ownership-card featured">
+      <div class="ownership-tag">Retailer-owned model</div>
+      <div class="ownership-title">The retailer owns the station and controls the experience</div>
+      <p>When a retailer owns the infrastructure, the station becomes part of the store experience. Pricing, loyalty integration, dwell-time promotions, and the driver relationship all stay with the retailer. Session data flows into their own analytics. A failed charge reflects on the retailer's brand regardless of who owns the hardware, but the recovery and the relationship belong to whoever controls the station.</p>
+      <div class="ownership-outcomes">
+        <div class="ownership-outcome positive">Full control over driver experience and branding</div>
+        <div class="ownership-outcome positive">Session data and customer behavior insights</div>
+        <div class="ownership-outcome positive">Loyalty program and promotional integration</div>
+        <div class="ownership-outcome positive">Revenue upside scales with utilization</div>
+        <div class="ownership-outcome neutral">Requires capital investment and operational partner</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="body-p" style="margin-top: 2.5rem;">The data in this report describes utilization outcomes, not ownership structure. But the retailers who will capture the most value from high-performing amenity locations are the ones who treat charging as an owned asset, not an outsourced utility. The difference between a grocery store that hosts a station and one that owns a station is the difference between a line item and a competitive advantage.</p>
+</section>
+
 
 <!-- ============ FOOTER ============ -->
 <div class="footer">
@@ -2132,6 +2255,60 @@ registerChart('densityChart', new Chart(document.getElementById('densityChart'),
 // 0.1 mi chart, median SPD
 // =====================================================================
 // Closest amenity chart
+
+// =====================================================================
+// Amenity SPD chart
+// =====================================================================
+registerChart('amenityChart', new Chart(document.getElementById('amenityChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Grocery','Big Box','Pharmacy','Shopping Mall','Fashion Retail','Specialty Retail','Beauty & Wellness','Bank','Electronics','Health','Coffee','Sit-Down Restaurant','Quick Serve','Convenience & Gas','Auto Services','Lodging','Travel & Rest Stop'],
+    datasets: [{
+      data: [41.9, 39.4, 37.0, 35.0, 34.5, 34.4, 32.5, 32.1, 30.0, 29.9, 26.9, 18.5, 13.7, 12.9, 11.6, 9.6, 9.0],
+      backgroundColor: (ctx) => {
+        const v = ctx.raw;
+        if (v >= 35) return C.anthracite;
+        if (v >= 25) return C.yellow;
+        if (v >= 15) return '#E8A89F';
+        return C.danger;
+      },
+      borderRadius: 3,
+      barPercentage: 0.8,
+    }],
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        ...tooltipStyle,
+        callbacks: {
+          title: (ctx) => ctx[0].label,
+          label: (ctx) => ctx.raw + ' median sessions/day',
+          afterLabel: (ctx) => {
+            const ex = brandExamples[ctx.label];
+            return ex ? 'e.g. ' + ex : '';
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        title: { display: true, text: 'Median sessions/day', color: C.dim, font: { weight: 500 } },
+        grid: { color: C.rule },
+        ticks: { color: C.dim },
+      },
+      y: {
+        grid: { display: false },
+        ticks: { color: C.ink, font: { weight: 500, size: 12 } },
+      },
+    },
+  },
+}));
+
 // =====================================================================
 // Tab switching
 // =====================================================================
